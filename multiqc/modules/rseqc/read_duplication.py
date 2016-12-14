@@ -54,7 +54,8 @@ def parse_reports(self):
                 " Note - plot truncated at 500 occurances and binned.</p>" + 
                 plots.linegraph.plot(self.read_dups, pconfig)
         })
-        
+
+    self.write_data_file(self.read_dups,'rseqc_read_duplication')
     # Return number of samples found
     return len(self.read_dups)
     

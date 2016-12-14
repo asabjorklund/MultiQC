@@ -67,7 +67,9 @@ def parse_reports(self):
             'content': "<p>"+p_link+" calculates a histogram of read GC content.</p>" + 
                 plots.linegraph.plot([self.read_gc, self.read_gc_pct], pconfig)
         })
-    
+
+    self.write_data_file(self.read_gc,'rseqc_read_gc')
+
     # Return number of samples found
     return len(self.read_gc)
     

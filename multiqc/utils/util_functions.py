@@ -68,12 +68,12 @@ def write_data_file(data, fn, sort_cols=False, data_format=None):
                 for sn in sorted(data.keys()):
                     for k in data[sn].keys():
                         if type(data[sn][k]) is not dict and k not in h:
-                            h.append(str(k))
+                            h.append(k)
                 if sort_cols:
                     h = sorted(h)
                 
                 # Get the rows
-                rows = [ "\t".join(h) ]
+                rows = [ "\t".join(map(str,h)) ]
                 for sn in sorted(data.keys()):
                     # Make a list starting with the sample name, then each field in order of the header cols
                     l = [sn] + [ str(data[sn].get(k, '')) for k in h[1:] ]

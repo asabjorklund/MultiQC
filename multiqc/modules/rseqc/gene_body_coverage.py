@@ -98,7 +98,8 @@ def parse_reports(self):
                 " if there is any 5' or 3' bias.</p>" +
                 plots.linegraph.plot([self.gene_body_cov_hist_percent, self.gene_body_cov_hist_counts], pconfig)
         })
-    
+    self.write_data_file(self.gene_body_cov_hist_counts,'rseqc_gene_body_coverage')
+        
     # Return number of samples found
     return len(self.gene_body_cov_hist_counts)
     
