@@ -103,6 +103,7 @@ fn_clean_exts:
     - '.pos.DupRate.xls'
     - '.GC.xls'
     - '_bismark'
+    - 'biotypes_'
 # These are removed after the above, only if sample names
 # start or end with this string. Again, removed in order.
 fn_clean_trim:
@@ -161,3 +162,5 @@ module_order:
     - 'skewer'
     - 'fastq_screen'
     - 'fastqc'
+    # Single cell QC
+    - 'biotypes'

@@ -138,3 +138,5 @@ tophat:
     fn: '*align_summary.txt'
 trimmomatic:
     contents: 'Trimmomatic'
+biotypes:
+    fn: 'biotypes_*' 
