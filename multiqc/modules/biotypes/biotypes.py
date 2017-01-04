@@ -26,6 +26,7 @@ class MultiqcModule(BaseMultiqcModule):
         self.biotype_data = dict()
         for f in self.find_log_files(config.sp['biotypes']):
             self.parse_biotypes(f)
+            self.add_data_source(f)
 
         if len(self.biotype_data) == 0:
             log.debug("Could not find any biotype data in {}".format(config.analysis_dir))

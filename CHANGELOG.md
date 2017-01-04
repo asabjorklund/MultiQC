@@ -1,5 +1,9 @@
 # MultiQC Version History
 
+#### v0.91dev
+* **Biotypes**
+  * Added a module to parse and plot biotype information.	
+	
 #### v0.9dev
 Module updates:
 * [**Prokka**](http://www.vicbioinformatics.com/software.prokka.shtml) - new module!
