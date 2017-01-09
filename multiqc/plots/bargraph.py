@@ -268,16 +268,29 @@ def matplotlib_bargraph (plotdata, plotsamples, pconfig={}):
             html += ' &nbsp; &nbsp; '
     
     # Buttons to cycle through different datasets
+    # OBS! Modified by asab to print correct labels on buttons for flat plots
     if len(plotdata) > 1 and not config.simple_output:
         html += '<div class="btn-group mpl_switch_group mqc_mplplot_bargraph_switchds">\n'
         for k, p in enumerate(plotdata):
             pid = pids[k]
             active = 'active' if k == 0 else ''
             try:
-                name = pconfig['data_labels'][k]
+                name = pconfig['data_labels'][k]['name']
             except:
-                name = k+1
-            html += '<button class="btn btn-default btn-sm {a}" data-target="#{pid}">{n}</button>\n'.format(a=active, pid=pid, n=name)
+                try:
+                    name = pconfig['data_labels'][k]
+                except:
+                    name = k+1
+
+            try:
+                ylab = 'data-ylab="{}"'.format(pconfig['data_labels'][k]['ylab'])
+            except:
+                ylab = 'data-ylab="{}"'.format(name) if name != k+1 else ''
+            try:
+                ymax = 'data-ymax="{}"'.format(pconfig['data_labels'][k]['ymax'])
+            except:
+                ymax = ''
+            html += '<button class="btn btn-default btn-sm {a}" data-target="#{pid}">{n}</button>\n'.format(a=active, pid=pid, n=name, y=ylab, k=k)
         html += '</div>\n\n'
     
     # Go through datasets creating plots

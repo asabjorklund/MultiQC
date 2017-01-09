@@ -101,9 +101,9 @@ class MultiqcModule(BaseMultiqcModule):
             'title': 'Biotypes',
             'ylab': 'Counts',
             'xlab': 'Biotype',
-            'data_labels': data_labels
+            'data_labels': data_labels,
+            'cpswitch': False
         }
-        
         return plots.bargraph.plot(datasets, use_keys, pconfig)
 
         
