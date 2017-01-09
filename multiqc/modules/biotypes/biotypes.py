@@ -76,7 +76,10 @@ class MultiqcModule(BaseMultiqcModule):
                 for k, v in self.biotype_data[s_name].items():
                     if not k in non_spike: continue
                     self.biotype_nonspike_percent[s_name][k] = (v/total)*100
-
+            # also, reorder items so that spike-in comes first
+            spike_name.extend(non_spike)
+            headers = spike_name
+            
         # make keys from all headers
         keys = OrderedDict()
         for h in headers:
